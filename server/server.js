@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./db');
 const morgan = require('morgan');
+const cors = require('cors')
 
 
 const app = express();
@@ -11,11 +12,14 @@ const app = express();
 
 // Logger
 app.use(morgan("dev"));
+
+// cors middleware
+app.use(cors());
 // Body parser
 app.use(express.json()); // take the body and attatch to the req obj
 
 // GET all restaurants
-app.get('/api/vi/restaurants', async (req, res) => {
+app.get('/api/v1/restaurants', async (req, res) => {
     try {
         const results = await db.query('SELECT * FROM restaurants');
 
