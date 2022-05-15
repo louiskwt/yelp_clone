@@ -1,9 +1,14 @@
 import React, { useContext, useEffect } from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder'
 import { RestaurantsContext } from '../context/RestaurantsContext';
+import { useNavigate } from "react-router-dom";
 
 const RestaurantList = () => {
+  // State and functions from Context
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+
+  // set up useHistory for routing
+  let navigate = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
@@ -31,6 +36,10 @@ const RestaurantList = () => {
     }
   }
 
+  const handleUpdate = (id) => {
+    navigate(`/restaurants/${id}/update`);
+  }
+
   return (
     <div className='list-group p-3'>
         <table className="table">
@@ -52,7 +61,7 @@ const RestaurantList = () => {
                       <td>{restaurant.location}</td>
                       <td>{"$".repeat(restaurant.price_range)}</td>
                       <td>Rating</td>
-                      <td><button className='btn btn-warning'>Edit</button></td>
+                    <td><button className='btn btn-warning' onClick={() => handleUpdate(restaurant.id)}>Edit</button></td>
                       <td><button className='btn btn-danger' onClick={()=> handleDelete(restaurant.id)}>Delete</button></td>
                     </tr>
                 )
