@@ -33,22 +33,18 @@ const RestaurantList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope='row'>KFC</th>
-                    <td>Austin</td>
-                    <td>$$$</td>
-                    <td>Rating</td>
-                    <td><button className='btn btn-warning'>Edit</button></td>
+              {restaurants && restaurants.map(restaurant => {
+                return (
+                    <tr key={restaurant.id}>
+                      <th scope='row'>{restaurant.name}</th>
+                      <td>{restaurant.location}</td>
+                      <td>{"$".repeat(restaurant.price_range)}</td>
+                      <td>Rating</td>
+                      <td><button className='btn btn-warning'>Edit</button></td>
                       <td><button className='btn btn-danger'>Delete</button></td>
-                </tr>
-                <tr>
-                    <th scope='row'>KFC</th>
-                    <td>Austin</td>
-                    <td>$$$</td>
-                    <td>Rating</td>
-                    <td><button className='btn btn-warning'>Edit</button></td>
-                      <td><button className='btn btn-danger'>Delete</button></td>
-                </tr>
+                    </tr>
+                )
+              })}
             </tbody>
         </table>
 
