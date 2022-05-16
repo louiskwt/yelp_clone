@@ -59,7 +59,7 @@ app.post('/api/v1/restaurants', async (req, res) => {
     try {
         const results = await db.query('INSERT INTO restaurants (name, location, price_range) VALUES ($1, $2, $3) returning *', [req.body.name, req.body.location, req.body.price_range]);
         console.log(results);
-        res.status(201).json({
+        res.status(200).json({
             status: 'success',
             message: 'a new resturant was added',
             restaurant: results.rows[0]
