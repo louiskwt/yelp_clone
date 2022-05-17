@@ -8,7 +8,7 @@ const AddRestaurant = () => {
     // Controlled input states
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
-    const [rating, setRating] = useState('Rating');
+    const [priceRange, setPriceRange] = useState('Price Range');
     // Form submit funciton
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,8 +36,8 @@ const AddRestaurant = () => {
                       <input type="text" name="location" placeholder='location' className='form-control' value={location} onChange={e => setLocation(e.target.value)} />
                 </div>
                 <div className="col-3">
-                      <select name="" className='form-select mr-sm-2' value={rating} onChange={e => setRating(e.target.value)}>
-                        <option defaultValue='Rating' disabled>Price Range</option>
+                      <select name="" className='form-select mr-sm-2' value={priceRange} onChange={e => setPriceRange(e.target.value)}>
+                        <option defaultValue='Price Range' disabled>Price Range</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
                         <option value="3">$$$</option>

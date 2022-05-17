@@ -34,7 +34,7 @@ const AddReview = () => {
                 <div className="form-group col-4">
                     <label htmlFor="rating">Rating</label>
                       <select className='form-select' id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
-                        <option value="Rating" selected disabled>Rating</option>
+                        <option defaultValue={rating} disabled>Rating</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
