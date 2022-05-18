@@ -59,7 +59,7 @@ const RestaurantList = () => {
     return (
       <div key={restaurant.id}>
         <StarRating rating={restaurant.average_rating} />
-        <span >({restaurant.count})</span>
+        <span >({restaurant.count} reviews)</span>
       </div>
     )
   }
@@ -81,7 +81,7 @@ const RestaurantList = () => {
               {restaurants && restaurants.map(restaurant => {
                 return (
                     <tr onClick={() => handleRestaurantSelect(restaurant.id)} key={restaurant.id}>
-                      <th scope='row'>{restaurant.name}</th>
+                      <th className='restaurant-link' scope='row'>{restaurant.name}</th>
                       <td>{restaurant.location}</td>
                       <td>{"$".repeat(restaurant.price_range)}</td>
                       <td>{renderRestarantRating(restaurant)}</td>

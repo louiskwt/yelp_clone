@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import RestaurantFinder from '../apis/RestaurantFinder';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const AddReview = () => {
     const  { id } = useParams();
@@ -47,7 +47,10 @@ const AddReview = () => {
                 <label htmlFor="Review">Review</label>
                 <textarea name="Review" id="" cols="30" rows="10" className="form-control" placeholder='Add your review' value={reviewText} onChange={(e) => setReviewText(e.target.value)}></textarea>
             </div>
-            <button type="submit" className="btn btn-primary" onClick={(e)=> handleSubmitReview(e)}>Sumbit</button>
+            <div className="mt-3">
+                  <button type="submit" className="btn btn-primary me-3" onClick={(e) => handleSubmitReview(e)}>Sumbit</button>
+                  <Link className='btn btn-warning ms-3"' to={'/'} >Go Back</Link>
+            </div>
         </form>
     </div>
   )
