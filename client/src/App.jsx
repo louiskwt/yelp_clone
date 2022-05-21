@@ -9,7 +9,6 @@ import RestaurantDetailPage from './routes/RestaurantDetailPage'
 import UpdatePage from './routes/UpdatePage'
 
 function App() {
-
   return (
     <RestaurantsContextProvider>
       <div className="container">
