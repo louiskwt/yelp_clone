@@ -6,7 +6,7 @@ import axios from 'axios';
 // else baseURL = localhost
 // const baseURL = "http://localhost:8000/api/v1/restaurants"
 
-const baseURL = process.env.NODE_ENV === 'production' ? 'api/v1/restaurants' : 'http://localhost:8000/api/v1/restaurants';
+const baseURL = process.env.NODE_ENV === "production" ? 'https://findmyrestaurant.xyz/api/v1/restaurants' : 'http://localhost:8000/api/v1/restaurants';
 
 export default axios.create({
     baseURL,

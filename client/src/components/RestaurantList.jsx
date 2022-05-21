@@ -12,17 +12,17 @@ const RestaurantList = () => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchList() {
       try {
         const response = await RestaurantFinder.get("/")
-        console.log(response.data.data);
+        
         setRestaurants(response.data.data.restaurants);
       } catch (error) {
         console.log(error.message)
       }
     }
 
-    fetchData();
+    fetchList();
 
   }, [])
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import RestaurantFinder from '../apis/RestaurantFinder';
 
-const UpdateRestaurant = (props) => {
+const UpdateRestaurant = () => {
     const { id } = useParams();
     
     let navigate = useNavigate();
@@ -12,13 +12,18 @@ const UpdateRestaurant = (props) => {
     const [priceRange, setPriceRange] = useState('');
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await RestaurantFinder.get(`/${id}`);
-            setName(response.data.data.restaurant.name);
-            setLocation(response.data.data.restaurant.location);
-            setPriceRange(response.data.data.restaurant.price_range);
+        const fetchRestaurant = async () => {
+            try {
+                const response = await RestaurantFinder.get(`/${id}`);
+
+                setName(response.data.data.restaurant.name);
+                setLocation(response.data.data.restaurant.location);
+                setPriceRange(response.data.data.restaurant.price_range);
+            } catch (error) {
+                console.log(error.message);
+            }
         }
-        fetchData();
+        fetchRestaurant();
     }, [])
 
     const handleSubmit = async (e) => {
